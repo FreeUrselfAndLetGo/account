@@ -1,0 +1,16 @@
+<view class="page-body">
+  <view class="index-bd">
+    <view class="timeline" wx:for="{{list}}" wx:key="id">
+      <view class="timeline_tmicon">{{index+1}}</view>
+      <view data-index="{{index}}">
+        <view class="touch-content">
+          <navigator url="../detail/detail?index={{ index }}&act=edit" class="timeline_tmlabel">
+            <view class="navigator-text1">{{typearray[item.typeindex]}}</view>
+            <view class="navigator-time">{{item.date}}</view>
+            <view class="navigator-text2">共花费 {{item.cost}}元</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

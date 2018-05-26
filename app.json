@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/statistics/statistics",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "废墟账本",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "requst": 20000,
+    "cnnectSocket": 20000,
+    "upladFile": 20000,
+    "downloadFile": 20000
+  }
+}
