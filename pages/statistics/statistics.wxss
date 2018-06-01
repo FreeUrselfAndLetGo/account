@@ -1,1 +1,17 @@
 /* pages/statistics/statistics.wxss */
+/*横向布局  */
+.layout_horizontal{
+  height: 100rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+
+/*纵向布局  */
+.layout_vertical{
+  height: 100rpx;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+

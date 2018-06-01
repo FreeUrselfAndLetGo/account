@@ -1,7 +1,7 @@
 <view class="page-body">
   <view class="index-bd">
     <view class="timeline" wx:for="{{list}}" wx:key="id">
-      <view class="timeline_tmicon">{{index+1}}</view>
+      <view class="timeline_tmicon" style="height:20px">{{index+1}}</view>
       <view data-index="{{index}}">
         <view class="touch-content">
           <navigator url="../detail/detail?index={{ index }}&act=edit" class="timeline_tmlabel">
