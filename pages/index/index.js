@@ -59,6 +59,7 @@ Page({
       const tmp = this.data.upperlimit / this.data.map.length // 计算每一格代表的钱
       if (nowCount > tmp) { // 超限
         nowCount -= tmp
+        wx.setStorageSync('nowCount', 0) // 写入缓存
         this.changeMap()//更新地图元素
       }
     }
