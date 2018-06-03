@@ -1,10 +1,11 @@
 // pages/detail/detail.js
 const util = require('../../utils/util.js')
 var curDate = util.curDate
-//获取应用实例
+// 获取应用实例
 const app = getApp()
 var list = []
 var account = {}
+var costCategory = {} // 按类别存储开销值
 
 Page({
 
@@ -16,7 +17,7 @@ Page({
     typearray: app.globalData.typearray,
     typeindex: 0,
     comment: '',
-    data: '2016-09-01',
+    date: '',
     index: 0, // 如果是修改的话 index对应修改的ID
     initdata: {}, // 如果是修改的话 initdata就是需要修改的数据
   },
@@ -28,6 +29,7 @@ Page({
     // 生命周期函数--监听页面加载
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
+    costCategory = wx.getStorageSync('costCategory') || {}
     if (params.act === 'new') {
       var curdate = curDate(new Date())
       this.setData({
@@ -56,6 +58,7 @@ Page({
   onShow: function () {
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
+    costCategory = wx.getStorageSync('costCategory') || {}
   },
 
   bindTypeArrayChange: function (e) {
@@ -83,22 +86,44 @@ Page({
       )
       const tmp = e.detail.value.date.split('-') // 获取年份+月份作为键值
       const key = tmp[0] + tmp[1]
+      const costTmp = parseFloat(e.detail.value.cost || 0)
+
       if (account.hasOwnProperty(key)) { // 如果已经记录过当月，则加上消费，若无则赋值为当月
-        account[key] += parseFloat(e.detail.value.cost || '0')
+        account[key] += costTmp
       } else {
-        account[key] = parseFloat(e.detail.value.cost || '0')
+        account[key] = costTmp
+      }
+
+      const key1 = e.detail.value.typeindex
+      if (costCategory.hasOwnProperty(key1)) { // 如果已经记录过这种类型，则加上消费，若无则赋值为当月
+        costCategory[key1] += costTmp
+      } else {
+        costCategory[key1] = costTmp
       }
     } else {
       var tmp = list[this.data.index].date.split('-')
       var key = tmp[0] + tmp[1]
       account[key] -= list[this.data.index].cost // 先在修改前的月份减去修改前的值
+      console.log(costCategory)
+      costCategory[list[this.data.index].typeindex] -= list[this.data.index].cost // 先减去当前开销的值
+      console.log(costCategory)
+
       tmp = e.detail.value.date.split('-')
       key = tmp[0] + tmp[1]
+
       if (account.hasOwnProperty(key)) { // 再在修改后的月份加上修改后的值
         account[key] += parseFloat(e.detail.value.cost || '0')
       } else {
         account[key] = parseFloat(e.detail.value.cost || '0')
       }
+
+      key = e.detail.value.typeindex
+      if (costCategory.hasOwnProperty(key)) { // 如果已经记录过这种类型，则加上消费，若无则赋值为当月
+        costCategory[key] += parseFloat(e.detail.value.cost || '0')
+      } else {
+        costCategory[key] = parseFloat(e.detail.value.cost || '0')
+      }
+
       list[this.data.index] = {
         comment: e.detail.value.detail,
         cost: parseFloat(e.detail.value.cost),
@@ -113,11 +138,13 @@ Page({
     })
     wx.setStorageSync('cashflow', list)
     wx.setStorageSync('account', account)
+    wx.setStorageSync('costCategory', costCategory)
     wx.navigateBack({
       delta: 1 // 返回上一级页面
     })
     console.log(list)
     console.log(account)
+    console.log(costCategory)
   },
   formReset: function (e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
