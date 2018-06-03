@@ -13,27 +13,18 @@ Page({
     sum: 0,
     upperlimit: '',
     showSettingModal: false,
-    dataArray: app.globalData.datearray,
+    dateArray: app.globalData.datearray,
     dateindex: 0,
 
     map: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], // 这个数组是地图的状态 如果要调整数量就在这里调整
-  },
-
-  onLoad: function () {
-    console.log('onLoad')
-    list = wx.getStorageSync('cashflow') || []
-    account = wx.getStorageSync('account') || {}
-    this.setData({
-      upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值
-      showSettingModal: this.data.upperlimit === ''
-    })
   },
 
   // 监听页面显示
   onShow: function () {
     this.setData({
       SideBarHidden: true,
-      upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值      
+      upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值 
+      showSettingModal: this.data.upperlimit === '',
     })
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
