@@ -5,6 +5,7 @@ Page({
   data: {
     typearray: app.globalData.typearray,
     list: [],
+    length: 0,
   },
 
   /**
@@ -20,7 +21,8 @@ Page({
   onShow: function () {
     const list = wx.getStorageSync('cashflow') || []
     this.setData({
-      list: list,
+      list: list.reverse(),
+      length: list.length,
     })
   },
 })
