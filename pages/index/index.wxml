@@ -3,29 +3,35 @@
   <open-data type="userAvatarUrl" class="user-image"></open-data> 
   <view class="weui-input">当前月份花费总额：{{sum}}</view>
   <view class="weui-input">设置上限额度：{{upperlimit}}</view>
-  <!-- <button bindtap='showSideBar'>侧边栏</button> -->
-  <view wx:if="{{upperlimit===''}}">
+  <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
+  <view wx:if="{{showSettingModal}}" class="setting-dialog">
     <form bindsubmit="formSubmit">
-      <view class="weui-cells__title">请输入上限值</view>
-      <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cells">
         <view class="weui-cell weui-cell_input">
-          <textarea name="upperlimit" auto-height value='{{upperlimit}}' />
+          <view class="weui-label">上限额度</view>  
+          <view class="weui-cell__bd"> 
+          <input class="weui-input" placeholder='请输入上限值' name="upperlimit" auto-height value='{{upperlimit}}' />
+          </view>
         </view>
       </view>
-      <view class="weui-cells__title">请输入每个月开始的时间</view>
-      <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cells">
         <view class="weui-cell weui-cell_input">
-          <textarea name="start" auto-height value='{{start}}' />
+          <view class="weui-label">统计周期</view>          
+          <view class="weui-cell__bd">         
+            <picker name="dateindex" value='{{dateindex}}' range='{{dateArray}}' bindchange='bindDateChange'>
+            <view class='weui-input' name="start" auto-height value='' placeholder='选择起始日'>{{dateArray[dateindex]}}</view>
+            </picker>
+          </view>
         </view>
       </view>
       <view class="btn-area">
-        <button class="weui-btn" type="primary" formType="submit">提交</button>
+        <button class="submit-btn" formType="submit">提交</button>
       </view>
     </form>
   </view>
   <view class="button-panel">
     <view>
-      <view>
+      <view bindtap='contactUs'>
         <image src='../../assets/contact.png' class='navigator-button-small'></image>
       </view>
     </view>
@@ -45,7 +51,7 @@
       </navigator>
     </view>
     <view>
-      <view>
+      <view bindtap="setting">
         <image src='../../assets/setting.png' class='navigator-button-small'></image>
       </view>
     </view>
