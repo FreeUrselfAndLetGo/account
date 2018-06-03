@@ -124,7 +124,7 @@ Page({
         min: 0
       },
       width: windowWidth,
-      height: 200,
+      height: 250,
       dataLabel: false,
       dataPointShape: true,
       extra: {

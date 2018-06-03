@@ -2,21 +2,22 @@
 <!-- <view class="container"> -->
 <view>
   <view class="page-head"> 
-    <view class="page-head-line"></view>
+    <view class="page-head-line">统计</view>
   </view>
   <view class="page-body">
-    <view style="background:#ECF5FF">
-      <view class="page-section page-section-gap">
-        <canvas canvas-id="lineCanvas" class="canvas" style="height:200px" bindtouchstart="touchHandler"></canvas>
+    <view>
+        <view style="text-align:center;">当月统计</view>
+        <view class="page-section" style="background:#FFF7FB">  
+          <canvas canvas-id="pieCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+        </view>
       </view>
-      <view  style="text-align:center;">历史轨迹图：</view>
-    </view>
-    <view style="background:#FFF7FB">
-      <view class="page-section "> 
-        <canvas canvas-id="pieCanvas" class="canvas" style="height:250px" bindtouchstart="touchHandler"></canvas>
+    <view>
+      <view  style="text-align:center;">历史轨迹图</view>
+      <view class="page-section" style="background:#ECF5FF">
+        <canvas canvas-id="lineCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
       </view>
-      <view style="text-align:center;">分类统计：</view>
     </view>
+    
   </view>
 </view>
 <!-- </view> -->
