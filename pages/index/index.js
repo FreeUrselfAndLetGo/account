@@ -24,7 +24,7 @@ Page({
     this.setData({
       SideBarHidden: true,
       upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值 
-      showSettingModal: this.data.upperlimit === '',
+      showSettingModal: wx.getStorageSync('upperlimit') === '',
     })
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
@@ -132,7 +132,6 @@ Page({
     wx.showModal({
       title: '联系我们',
       content: 'FreeUrselfAndLetGo',
-
     })
   },
 
@@ -144,18 +143,19 @@ Page({
 
   formSubmit: function (e) {
     wx.setStorageSync('upperlimit', parseInt(e.detail.value.upperlimit))
-    const inputDate = parseInt(e.detail.value.start) // 获取输入的每个月开始的日期
+    const inputDate = this.data.dateindex + 1 // 获取输入的每个月开始的日期
     const now = new Date() // 获取当前日期
+    var tmp_pre
     if (inputDate > now.getDate()) { // 如果这个月截止
-      const tmp_pre = [now.getFullYear(), now.getMonth(), now.getDate()]
+      tmp_pre = [now.getFullYear(), now.getMonth(), now.getDate()]
       wx.setStorageSync('pre', tmp_pre)
     } else { // 如果下个月截止
-      const tmp_pre = [now.getFullYear(), now.getMonth() + 1, now.getDate()]
+      tmp_pre = [now.getFullYear(), now.getMonth() + 1, now.getDate()]
       wx.setStorageSync('pre', tmp_pre)
     }
     pre = tmp_pre // 修改上月时间
     this.setData({
-      upperlimit: e.detail.value.upperlimit, // 修改上限值
+      upperlimit: parseInt(e.detail.value.upperlimit), // 修改上限值
       showSettingModal: false,
     })
   },
@@ -163,12 +163,17 @@ Page({
   preventTouchMove: function (e) { }, // 空函数捕捉手势
 
   hideSetting: function (e) {
-    this.setData({
-      showSettingModal: false,
-    })
+    if (this.data.upperlimit !== '') {
+      this.setData({
+        showSettingModal: false,
+      })
+    }
   },
 
   bindDateChange: function (e) {
-
+    var tmp = parseInt(e.detail.value)
+    this.setData({
+      dateindex: tmp,
+    })
   }
 })
