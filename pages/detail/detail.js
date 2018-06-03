@@ -6,9 +6,9 @@ const app = getApp()
 var list = []
 var account = {}
 var costCategory = {} // 按类别存储开销值
+var nowCount = 0
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -30,6 +30,8 @@ Page({
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
     costCategory = wx.getStorageSync('costCategory') || {}
+    nowCount = wx.getStorageSync('nowCount') || 0
+
     if (params.act === 'new') {
       var curdate = curDate(new Date())
       this.setData({
@@ -37,8 +39,6 @@ Page({
         date: curdate[0],
       })
     } else {
-      console.log(params, list.length)
-      // const nowLog = list[parseInt(params.index)]
       const nowLog = list[params.index]
       this.setData({
         act: 'edit',
@@ -59,14 +59,15 @@ Page({
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
     costCategory = wx.getStorageSync('costCategory') || {}
+    nowCount = wx.getStorageSync('nowCount') || 0
   },
 
   bindTypeArrayChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       typeindex: e.detail.value
     })
   },
+
   bindDateChange: function (e) {
     this.setData({
       date: e.detail.value
@@ -74,7 +75,6 @@ Page({
   },
 
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
     if (this.data.act === 'new') {
       list.push( // 消费记录
         {
@@ -100,13 +100,15 @@ Page({
       } else {
         costCategory[key1] = costTmp
       }
+
+
+      // 判断是否是当月
+      nowCount += costTmp // 更新已花费金额      
     } else {
       var tmp = list[this.data.index].date.split('-')
       var key = tmp[0] + tmp[1]
       account[key] -= list[this.data.index].cost // 先在修改前的月份减去修改前的值
-      console.log(costCategory)
       costCategory[list[this.data.index].typeindex] -= list[this.data.index].cost // 先减去当前开销的值
-      console.log(costCategory)
 
       tmp = e.detail.value.date.split('-')
       key = tmp[0] + tmp[1]
@@ -139,15 +141,13 @@ Page({
     wx.setStorageSync('cashflow', list)
     wx.setStorageSync('account', account)
     wx.setStorageSync('costCategory', costCategory)
+    wx.setStorageSync('nowCount', nowCount)
     wx.navigateBack({
       delta: 1 // 返回上一级页面
     })
-    console.log(list)
-    console.log(account)
-    console.log(costCategory)
   },
+
   formReset: function (e) {
-    console.log('form发生了reset事件，携带数据为：', e.detail.value)
     if (this.data.act === 'new') {
       var curdate = curDate(new Date())
       this.setData({
