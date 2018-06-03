@@ -117,5 +117,14 @@
 }
 
 .page-body {
-    background-color: #F8F8F8;
+  background-color: #F8F8F8;
+}
+
+.no-content {
+  height: 300rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
 }
