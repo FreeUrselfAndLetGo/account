@@ -89,11 +89,17 @@ page {
 
 .setting-dialog {
   width: 540rpx;
-  height: 370rpx;
+  height: 100%;
   overflow: hidden;
   z-index: 999;
   background: #fff;
-  border-radius: 15rpx;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.dialog-title {
+  font-size: 18px;
+  padding: 15px;
 }
 
 .submit-btn {
@@ -101,7 +107,7 @@ page {
   border: none;
   color: #09BB07;
   position: relative;
-  margin-top: 15rpx;
+  margin-top: 15px;
 }
 
 
@@ -110,7 +116,7 @@ icon {
 }
 .weui-cells {
   position: relative;
-  margin-top: 1.17647059em;
+  margin-top: 0;
   background-color: #FFFFFF;
   line-height: 1.41176471;
   font-size: 17px;

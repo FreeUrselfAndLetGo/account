@@ -5,6 +5,7 @@
   <view class="weui-input">设置上限额度：{{upperlimit}}</view>
   <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
   <view wx:if="{{showSettingModal}}" class="setting-dialog">
+    <view class='dialog-title'>设置</view>
     <form bindsubmit="formSubmit">
       <view class="weui-cells">
         <view class="weui-cell weui-cell_input">
@@ -13,16 +14,17 @@
           <input class="weui-input" placeholder='请输入上限值' name="upperlimit" auto-height value='{{upperlimit}}' />
           </view>
         </view>
-      </view>
-      <view class="weui-cells">
         <view class="weui-cell weui-cell_input">
-          <view class="weui-label">统计周期</view>          
+          <view class="weui-label">统计起始日</view>          
           <view class="weui-cell__bd">         
             <picker name="dateindex" value='{{dateindex}}' range='{{dateArray}}' bindchange='bindDateChange'>
             <view class='weui-input' name="start" auto-height value='' placeholder='选择起始日'>{{dateArray[dateindex]}}</view>
             </picker>
           </view>
         </view>
+      </view>
+      <view class="weui-cells">
+        
       </view>
       <view class="btn-area">
         <button class="submit-btn" formType="submit">提交</button>
