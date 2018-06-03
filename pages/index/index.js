@@ -15,6 +15,8 @@ Page({
     showSettingModal: false,
     dataArray: app.globalData.datearray,
     dateindex: 0,
+
+    map: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], // 这个数组是地图的状态 如果要调整数量就在这里调整
   },
   onLoad: function () {
     console.log('onLoad')
@@ -23,8 +25,8 @@ Page({
     this.setData({
       upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值
       showSettingModal: this.upperlimit === ''
+      
     })
-    map: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], // 这个数组是地图的状态 如果要调整数量就在这里调整
   },
 
   // 监听页面显示
