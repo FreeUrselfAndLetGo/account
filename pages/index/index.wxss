@@ -7,6 +7,68 @@ page {
   line-height: 1.6;
   font-family: -apple-system-font, "Helvetica Neue", sans-serif;
 }
+
+.user-image {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.button-panel {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 10rpx;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+}
+
+.navigator-button {
+  height: 85rpx;
+  width: 85rpx;
+  background: transparent;
+  margin-right: 25rpx;
+  margin-left: 25rpx;
+}
+
+.navigator-button-important {
+  height: 100rpx;
+  width: 100rpx;
+  background: transparent;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.navigator-button-small {
+  height: 70rpx;
+  width: 70rpx;
+  background: transparent;
+  margin-right: 25rpx;
+  margin-left: 25rpx;
+}
+
+/* 装弧线的容器 */
+.outside-arc {
+  position: absolute;
+  height: 150rpx;
+  overflow: hidden;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* 一个弧 */
+.an-arc {
+  position: absolute;
+  top: 0;
+  background: #09BB07;
+  opacity: 0.1;
+  height: 2200rpx;
+  width: 2200rpx;
+  border-radius: 1100rpx;
+}
+
 icon {
   vertical-align: middle;
 }

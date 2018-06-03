@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userAvatarUrl" class="user-image"></open-data> 
   <view class="weui-input">当前月份花费总额：{{sum}}</view>
   <view class="weui-input">设置上限额度：{{upperlimit}}</view>
-  <button bindtap='showSideBar'>侧边栏</button>
+  <!-- <button bindtap='showSideBar'>侧边栏</button> -->
   <view wx:if="{{upperlimit===''}}">
     <form bindsubmit="formSubmit">
       <view class="weui-cells__title">请输入上限值</view>
@@ -23,11 +23,34 @@
       </view>
     </form>
   </view>
-  <view wx:if="{{SideBarHidden===false}}">
-    <navigator url='../detail/detail?act=new'>增加开支</navigator>
-    <navigator url='../list/list'>列表</navigator>
-    <navigator url='../statistics/statistics'>统计</navigator>
-    <button bindtap='showSideBar'>修改上限</button>
-    <button bindtap='showSideBar'>联系我们</button>
+  <view class="button-panel">
+    <view>
+      <view>
+        <image src='../../assets/contact.png' class='navigator-button-small'></image>
+      </view>
+    </view>
+    <view>
+      <navigator url='../list/list'>
+        <image src="../../assets/list.png" class="navigator-button"></image>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='../detail/detail?act=new'>
+        <image src="../../assets/add.png" class="navigator-button-important"></image>
+      </navigator>
+    </view>
+    <view>
+      <navigator url='../statistics/statistics'>
+        <image src="../../assets/data.png" class='navigator-button'></image>
+      </navigator>
+    </view>
+    <view>
+      <view>
+        <image src='../../assets/setting.png' class='navigator-button-small'></image>
+      </view>
+    </view>
+    
   </view>
+  <view class='outside-arc'><view class="an-arc"></view></view>
+  
 </view>
