@@ -18,14 +18,14 @@ Page({
 
     map: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], // 这个数组是地图的状态 如果要调整数量就在这里调整
   },
+
   onLoad: function () {
     console.log('onLoad')
     list = wx.getStorageSync('cashflow') || []
     account = wx.getStorageSync('account') || {}
     this.setData({
       upperlimit: wx.getStorageSync('upperlimit') || '', // 读取上限值
-      showSettingModal: this.upperlimit === ''
-      
+      showSettingModal: this.data.upperlimit === ''
     })
   },
 
@@ -169,7 +169,7 @@ Page({
     })
   },
 
-  preventTouchMove: function (e) {},
+  preventTouchMove: function (e) { }, // 空函数捕捉手势
 
   hideSetting: function (e) {
     this.setData({
@@ -178,6 +178,6 @@ Page({
   },
 
   bindDateChange: function (e) {
-    
+
   }
 })
