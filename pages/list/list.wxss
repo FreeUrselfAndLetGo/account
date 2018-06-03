@@ -10,7 +10,7 @@
 .touch-content {
  width: 100%;
  padding: 0px;
- line-height: 22px;
+ line-height:0px;
  margin-right:0;
  -webkit-transition: all 0.4s;
  transition: all 0.4s;
@@ -25,7 +25,7 @@
  flex-direction: column;
  align-items: center;
  justify-content: center;
- color: #fff;
+ color: red;
  -webkit-transform: translateX(90px);
  transform: translateX(90px);
  -webkit-transition: all 0.4s;
@@ -40,26 +40,27 @@
  transform: translateX(0);
 }
 
-.navigator-text1 {
-  display: inline;
+.navigator-theme {
+  position: absolute;
   text-align: left;
-  font-size: 28rpx;
+  font-size: 38rpx;
+  background: blue;
+  top: 50rpx;
 }
 
 .navigator-time {
-  text-align: right;
-  float: right;
-  font-size: 28rpx;
+  position: absolute;
+  background: green;
+  font-size: 38rpx;
+  bottom: 50rpx;
 }
 
-.navigator-text2 {
+.navigator-cost {
   text-align: center;
-  padding: 20rpx 40rpx 20rpx 40rpx;
-}
-
-.navigator-text3 {
-  text-align: right;
-  font-size: 28rpx;
+  width: 100rpx;
+  background: #fff;
+  position: absolute;
+  right: 130rpx;
 }
 
 .timeline {
@@ -70,16 +71,31 @@
 }
 
 /* The line */
-
+ 
 .timeline:before {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   width: 10px;
-  background: #afdcf8;
-  left: 10%;
-  margin-left: -10px;
+  background: #ff5777;
+  margin-left: 10rpx;
+  z-index: 100;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+} 
+
+.timeline:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 35%;
+  width: 10px;
+  background: #fff;
+  border-left: 1px #D9D9D9 dashed;
+  border-top: 1px #D9D9D9 solid;
+  border-bottom: 1px #D9D9D9 solid;
   z-index: 100;
 }
 
@@ -90,47 +106,16 @@
 /* Right content */
 
 .timeline_tmlabel {
-  margin: 0 0 15px 15%;
-  background: #b6e4f4;
+  margin: 0 10rpx 15px 10rpx;
+  background: #fff;
   padding: 2em;
   font-size: 1.2em;
   font-weight: 300;
   position: relative;
   border-radius: 5px;
+  border: 1px solid #D9D9D9;
 }
 
-/* The triangle */
-
-.timeline_tmlabel:after {
-  right: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-right-color: #b6e4f4;
-  border-width: 10px;
-  top: 5px;
-}
-
-/* The icons */
-
-.timeline_tmicon {
-  width: 15px;
-  height: 15px;
-  text-transform: none;
-  font-size: 1em;
-  line-height: 15px;
-  -webkit-font-smoothing: antialiased;
-  position: absolute;
-  color: #fff;
-  background: #46a4da;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px #afdcf8;
-  text-align: center;
-  left: 10%;
-  top: 5px;
-  margin: 0 0 0 -12.5px;
-  z-index: 100;
+.page-body {
+    background-color: #F8F8F8;
 }
