@@ -46,16 +46,23 @@ Page({
       upperlimit: upperlimit,
     })
     //饼图部分
-    var piepartname = ['购物', '餐饮', '交通', '住宿', '玩乐', '其他'];
+    //var piepartname = ['购物', '餐饮', '交通', '住宿', '玩乐', '其他'];
+    var piepartname = app.globalData.typearray;
     var seriespie = [];
-    for (var i = 0; i < piepartname.length; i++) {
-      var tempdata=1;
-      //获取到的购物信息数据
-      if(1){
-        tempdata=i+1;
-      }
+    const costCategory = wx.getStorageSync('costCategory') || {}
+    for (var i =0;i<piepartname.length;i++) {
+      //获取到的购物信息数
       seriespie.push({
         name: piepartname[i],
+        data: 0.00000000000000000000000001,
+      })
+    }
+    
+    for (var i in costCategory) {
+      var tempdata = costCategory[i];;
+    //获取到的购物信息数
+      seriespie.push({
+        name: i,
         data: tempdata,
       })
     }
@@ -73,10 +80,6 @@ Page({
     var simulationData = {};
     var categories = [];
     var data = [];
-    // for (var i = 0; i < 10; i++) {
-    //   categories.push('2016-' + (i + 1));
-    //   data.push(Math.random() * (20 - 10) + 10);
-    // }
     for (var i = 6; i >= 0; i--) {
       var d = new Date();
       var year = d.getFullYear();
@@ -88,10 +91,10 @@ Page({
       month = month[1] ? month : '0' + month;
       var key = year +'-'+ month;
       categories.push(key);
-      var tempdata=upperlimit;
+      var tempdata=upperlimit/1000;
       //获取数据
       if(account[key]){
-        tempdata=i+1;
+        tempdata = account[key]/1000;
       }
       data.push(tempdata);
     }
@@ -133,5 +136,6 @@ Page({
     });
   }
 })
+
 
  
