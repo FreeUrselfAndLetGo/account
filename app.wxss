@@ -5,6 +5,5 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 80rpx 10rpx;
   box-sizing: border-box;
 } 
