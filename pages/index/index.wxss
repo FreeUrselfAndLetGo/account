@@ -176,7 +176,7 @@ page {
   left: 0;
   background: #000;
   opacity: 0.3;
-  overflow: hidden;
+  overflow: hidden; 
   z-index: 900;
   color: #fff;
   display: flex;
@@ -186,12 +186,15 @@ page {
 
 .setting-dialog {
   width: 540rpx;
-  height: 100%;
   overflow: hidden;
   z-index: 999;
   background: #fff;
   border-radius: 5px;
   text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .dialog-title {

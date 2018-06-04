@@ -3,7 +3,7 @@
   <open-data type="userAvatarUrl" class="user-image"></open-data>
   <view class="weui-input">当前月份花费总额：{{sum}}</view>
   <view class="weui-input">设置上限额度：{{upperlimit}}</view>
-  <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
+  
   
   <view class="weui-grids">  
     <view class="weui-grid" wx:for="{{resultmap}}" >  
@@ -43,6 +43,7 @@
       </view>  
     </view>  
   </view> 
+  <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
   <view wx:if="{{showSettingModal}}" class="setting-dialog">
     <view class='dialog-title'>设置</view>
     <form bindsubmit="formSubmit">
