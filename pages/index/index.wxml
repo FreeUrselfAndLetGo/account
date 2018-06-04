@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <open-data type="userAvatarUrl" class="user-image"></open-data>
-  <view class="weui-input">当前月份花费总额：{{sum}}</view>
-  <view class="weui-input">设置上限额度：{{upperlimit}}</view>
-  
+  <view class='user-info'>
+     <open-data type="userAvatarUrl" class="user-image"></open-data>
+  <view class="weui-input">{{sum}}/{{upperlimit}}</view>
+   </view>
   
   <view class="weui-grids">  
     <view class="weui-grid" wx:for="{{resultmap}}" >  
@@ -11,23 +11,23 @@
         <view wx:if="{{item==2}}">
           <view style="position: relative;">  
             <view style="position: absolute;"> 
-              <image src="../../assets/g2.png" style="width:70px;height:70px" mode="scaleToFill" />
+              <image src="../../assets/g2.png" class='grid-image'  mode="scaleToFill" />
             </view>  
-            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />   
+             <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />    
           </view>  
         </view>
         <view wx:if="{{item==1}}">
           <view style="position: relative;">  
             <view style="position: absolute;"> 
-              <image src="../../assets/h.png" style="width:70px;height:70px" mode="scaleToFill" />
+              <image src="../../assets/h.png" class='grid-image' mode="scaleToFill" />
             </view>  
-            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />  
+            <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />  
           </view>  
         </view>
         <view wx:if="{{item==0}}">
           <view style="position: relative;">  
             <view style="position: absolute;"> 
-              <image src="../../assets/p.png" style="width:70px;height:70px" mode="scaleToFill" />
+              <image src="../../assets/p.png" class='grid-image' mode="scaleToFill" />
             </view>            
           </view>  
         </view>
@@ -35,9 +35,9 @@
         <view wx:if="{{item>10}}">
           <view style="position: relative;">  
             <view style="position: absolute;"> 
-              <image src="../../assets/{{item-10}}.png" style="width:70px;height:70px" mode="scaleToFill" />
+              <image src="../../assets/{{item-10}}.png" class='grid-image' mode="scaleToFill" />
             </view>  
-            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />  
+            <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />  
           </view>  
         </view>
       </view>  
