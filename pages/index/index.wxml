@@ -4,6 +4,45 @@
   <view class="weui-input">当前月份花费总额：{{sum}}</view>
   <view class="weui-input">设置上限额度：{{upperlimit}}</view>
   <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
+  
+  <view class="weui-grids">  
+    <view class="weui-grid" wx:for="{{resultmap}}" >  
+      <view>  
+        <view wx:if="{{item==2}}">
+          <view style="position: relative;">  
+            <view style="position: absolute;"> 
+              <image src="../../assets/g2.png" style="width:70px;height:70px" mode="scaleToFill" />
+            </view>  
+            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />   
+          </view>  
+        </view>
+        <view wx:if="{{item==1}}">
+          <view style="position: relative;">  
+            <view style="position: absolute;"> 
+              <image src="../../assets/h.png" style="width:70px;height:70px" mode="scaleToFill" />
+            </view>  
+            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />  
+          </view>  
+        </view>
+        <view wx:if="{{item==0}}">
+          <view style="position: relative;">  
+            <view style="position: absolute;"> 
+              <image src="../../assets/p.png" style="width:70px;height:70px" mode="scaleToFill" />
+            </view>            
+          </view>  
+        </view>
+        <view wx:if="{{item==-1}}"></view>
+        <view wx:if="{{item>10}}">
+          <view style="position: relative;">  
+            <view style="position: absolute;"> 
+              <image src="../../assets/{{item-10}}.png" style="width:70px;height:70px" mode="scaleToFill" />
+            </view>  
+            <image src="../../assets/basic.png" style="width:70px;height:70px"  mode="scaleToFill" />  
+          </view>  
+        </view>
+      </view>  
+    </view>  
+  </view> 
   <view wx:if="{{showSettingModal}}" class="setting-dialog">
     <view class='dialog-title'>设置</view>
     <form bindsubmit="formSubmit">
