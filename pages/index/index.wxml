@@ -1,48 +1,47 @@
 <!--index.wxml-->
 <view class="container">
   <view class='user-info'>
-     <open-data type="userAvatarUrl" class="user-image"></open-data>
-  <view class="weui-input">{{sum}}/{{upperlimit}}</view>
-   </view>
-  
-  <view class="weui-grids">  
-    <view class="weui-grid" wx:for="{{resultmap}}" >  
-      <view>  
+    <open-data type="userAvatarUrl" class="user-image"></open-data>
+    <view class="weui-input">{{sum}}/{{upperlimit}}</view>
+  </view>
+  <view class="weui-grids">
+    <view class="weui-grid" wx:for="{{resultmap}}" wx:key="">
+      <view>
         <view wx:if="{{item==2}}">
-          <view style="position: relative;">  
-            <view style="position: absolute;"> 
-              <image src="../../assets/g2.png" class='grid-image'  mode="scaleToFill" />
-            </view>  
-             <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />    
-          </view>  
+          <view style="position: relative;">
+            <view style="position: absolute;">
+              <image src="../../assets/g2.png" class='grid-image' mode="scaleToFill" />
+            </view>
+            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+          </view>
         </view>
         <view wx:if="{{item==1}}">
-          <view style="position: relative;">  
-            <view style="position: absolute;"> 
+          <view style="position: relative;">
+            <view style="position: absolute;">
               <image src="../../assets/h.png" class='grid-image' mode="scaleToFill" />
-            </view>  
-            <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />  
-          </view>  
+            </view>
+            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+          </view>
         </view>
         <view wx:if="{{item==0}}">
-          <view style="position: relative;">  
-            <view style="position: absolute;"> 
+          <view style="position: relative;">
+            <view style="position: absolute;">
               <image src="../../assets/p.png" class='grid-image' mode="scaleToFill" />
-            </view>            
-          </view>  
+            </view>
+          </view>
         </view>
         <view wx:if="{{item==-1}}"></view>
         <view wx:if="{{item>10}}">
-          <view style="position: relative;">  
-            <view style="position: absolute;"> 
+          <view style="position: relative;">
+            <view style="position: absolute;">
               <image src="../../assets/{{item-10}}.png" class='grid-image' mode="scaleToFill" />
-            </view>  
-            <image src="../../assets/basic.png" class='grid-image'  mode="scaleToFill" />  
-          </view>  
+            </view>
+            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+          </view>
         </view>
-      </view>  
-    </view>  
-  </view> 
+      </view>
+    </view>
+  </view>
   <view class="modal-mask" bindtap='hideSetting' catchtouchmove='preventTouchMove' wx:if='{{ showSettingModal}}'></view>
   <view wx:if="{{showSettingModal}}" class="setting-dialog">
     <view class='dialog-title'>设置</view>

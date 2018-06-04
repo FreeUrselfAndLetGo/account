@@ -13,11 +13,11 @@
             </view>
           </view>
         </view>
-        
+
         <view class="weui-cells ">
           <view class="weui-cell weui-cell_input">
-            <view class="weui-label">支出金额</view>  
-            <view class="weui-cell__bd">        
+            <view class="weui-label">支出金额</view>
+            <view class="weui-cell__bd">
               <input name="cost" class="weui-input" type="digit" placeholder="0.0" value='{{cost}}' />
             </view>
           </view>

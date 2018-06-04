@@ -101,7 +101,6 @@ Page({
         costCategory[key1] = costTmp
       }
 
-
       // 判断是否是当月
       nowCount += costTmp // 更新已花费金额      
     } else {

@@ -1,25 +1,25 @@
 <!--pages/statistics/statistics.wxml-->
 <!-- <view class="container"> -->
 <view>
-  <view class="page-head"> 
+  <view class="page-head">
     <view class="page-head-line">统计</view>
   </view>
   <view class="page-body">
     <view>
       <view style="text-align:center;">分类统计</view>
-        <view class="page-section" style="background:#FFF7FB">  
-          <canvas canvas-id="pieCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
-        </view>
-        
+      <view class="page-section" style="background:#FFF7FB">
+        <canvas canvas-id="pieCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
       </view>
+
+    </view>
     <view>
-      <view  style="text-align:center;">历史轨迹图</view>
+      <view style="text-align:center;">历史轨迹图</view>
       <view class="page-section" style="background:#ECF5FF">
         <canvas canvas-id="lineCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
       </view>
-      
+
     </view>
-    
+
   </view>
 </view>
 <!-- </view> -->

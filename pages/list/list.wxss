@@ -1,43 +1,45 @@
 /* touch */
+
 .touch-main {
- font-size: 14px;
- display: flex;
- justify-content: space-between;
- border-bottom:0px;
- width: 100%;
- overflow: hidden
-}
-.touch-content {
- width: 100%;
- padding: 0px;
- line-height:0px;
- margin-right:0;
- -webkit-transition: all 0.4s;
- transition: all 0.4s;
- -webkit-transform: translateX(90px);
- transform: translateX(90px);
- margin-left: -90px
-}
-.touch-hide {
- background-color: orangered;
- width: 90px;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color: red;
- -webkit-transform: translateX(90px);
- transform: translateX(90px);
- -webkit-transition: all 0.4s;
- transition: all 0.4s;
- margin: 0 0 15px 0;
- border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.touch-active .touch-content,
-.touch-active .touch-hide {
- -webkit-transform: translateX(0);
- transform: translateX(0);
+.touch-content {
+  width: 100%;
+  padding: 0px;
+  line-height: 0px;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+
+.touch-hide {
+  background-color: orangered;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+}
+
+.touch-active .touch-content, .touch-active .touch-hide {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
 
 .navigator-theme {
@@ -71,7 +73,7 @@
 }
 
 /* The line */
- 
+
 .timeline:before {
   content: '';
   position: absolute;
@@ -83,7 +85,7 @@
   z-index: 100;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-} 
+}
 
 .timeline:after {
   content: '';
@@ -93,9 +95,9 @@
   right: 35%;
   width: 10px;
   background: #fff;
-  border-left: 1px #D9D9D9 dashed;
-  border-top: 1px #D9D9D9 solid;
-  border-bottom: 1px #D9D9D9 solid;
+  border-left: 1px #d9d9d9 dashed;
+  border-top: 1px #d9d9d9 solid;
+  border-bottom: 1px #d9d9d9 solid;
   z-index: 100;
 }
 
@@ -113,11 +115,11 @@
   font-weight: 300;
   position: relative;
   border-radius: 5px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
 }
 
 .page-body {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 
 .no-content {

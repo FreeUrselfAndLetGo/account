@@ -6,7 +6,6 @@ var pieChart = null;
 var lineChart = null;
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -20,7 +19,7 @@ Page({
    */
   onShow: function () {
     const account = wx.getStorageSync('account') || {}
-    const upperlimit = wx.getStorageSync('upperlimit') 
+    const upperlimit = wx.getStorageSync('upperlimit')
     this.setData({
       account: account,
       upperlimit: upperlimit,
@@ -46,23 +45,15 @@ Page({
       upperlimit: upperlimit,
     })
     //饼图部分
-    //var piepartname = ['购物', '餐饮', '交通', '住宿', '玩乐', '其他'];
     var piepartname = app.globalData.typearray;
     var seriespie = [];
     const costCategory = wx.getStorageSync('costCategory') || {}
-    for (var i =0;i<piepartname.length;i++) {
+
+    for (var i in costCategory) {
+      var tempdata = costCategory[i];;
       //获取到的购物信息数
       seriespie.push({
         name: piepartname[i],
-        data: 0.00000000000000000000000001,
-      })
-    }
-    
-    for (var i in costCategory) {
-      var tempdata = costCategory[i];;
-    //获取到的购物信息数
-      seriespie.push({
-        name: i,
         data: tempdata,
       })
     }
@@ -89,17 +80,18 @@ Page({
         year = (year - 1).toString();
       }
       month = month[1] ? month : '0' + month;
-      var key = year +'-'+ month;
+      var key = year + '-' + month;
       categories.push(key);
-      var tempdata=upperlimit/1000;
+      var tempdata = 0;
+      key = year + month;
       //获取数据
-      if(account[key]){
-        tempdata = account[key]/1000;
+      if (account[key]) {
+        tempdata = account[key] / 1000;
       }
       data.push(tempdata);
     }
     // data[4] = null;
-    simulationData= {
+    simulationData = {
       categories: categories,
       data: data
     }
@@ -138,4 +130,3 @@ Page({
 })
 
 
- 

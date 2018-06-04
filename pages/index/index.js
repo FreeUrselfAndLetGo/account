@@ -16,9 +16,9 @@ Page({
     dateArray: app.globalData.datearray,
     dateindex: 0,
 
-    map: [2,2,2,2,2 , 2,2,2,2,2, 2,2,2,2,2, 2,2,2], // 这个数组是地图的状态 如果要调整数量就在这里调整
-    pos:[-1,1,1,1,1 ,1,1,0,0,1 ,0,1,1,1,1 ,1,1,1,0,1 ,1,0,1,1,0, 0,-1,0,0,-1],
-    resultmap:[0,0,0,0,0 ,0,0,0,0,0 ,0,0,0,0,0 ,0,0,0,0,0 ,0,0,0,0,0 ,0,0,0,0,0],
+    map: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2], // 这个数组是地图的状态 如果要调整数量就在这里调整
+    pos: [-1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, -1, 0, 0, -1],
+    resultmap: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   },
 
   // 监听页面显示
@@ -45,26 +45,26 @@ Page({
     //根据map装换，对应到地图显示上
     this.changeToUse()
   },
-  changeToUse: function(){
-      var tmpmap=[];
-      var tempi=0;
-      for(var i=0;i<this.data.pos.length;i++){
-        if(this.data.pos[i]==1){
-          if ((this.data.map[tempi] == 0) ||( this.data.map[tempi]==1)){
-            tmpmap[i]=this.data.map[tempi]+1
-          }
-          else{
-            tmpmap[i]=tempi+11;
-          }
-          tempi++;
+  changeToUse: function () {
+    var tmpmap = [];
+    var tempi = 0;
+    for (var i = 0; i < this.data.pos.length; i++) {
+      if (this.data.pos[i] == 1) {
+        if ((this.data.map[tempi] == 0) || (this.data.map[tempi] == 1)) {
+          tmpmap[i] = this.data.map[tempi] + 1
         }
-        else{
-          tmpmap[i] = this.data.pos[i];
+        else {
+          tmpmap[i] = tempi + 11;
         }
+        tempi++;
       }
-      this.setData({
-        resultmap: tmpmap,
-      })
+      else {
+        tmpmap[i] = this.data.pos[i];
+      }
+    }
+    this.setData({
+      resultmap: tmpmap,
+    })
   },
   refreshMap: function (nowCount) {
     // 先检测还在不在当月，不在当月就直接刷新地图，在当月就检测要不要刷新地图
