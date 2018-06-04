@@ -122,9 +122,6 @@ Page({
       height: 250,
       dataLabel: false,
       dataPointShape: true,
-      extra: {
-        lineStyle: 'curve'
-      }
     });
   }
 })
