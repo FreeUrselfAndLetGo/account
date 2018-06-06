@@ -146,12 +146,6 @@ Page({
     })
   },
 
-  showSideBar: function (e) {
-    this.setData({
-      SideBarHidden: !this.data.SideBarHidden, // 出现侧边栏
-    })
-  },
-
   contactUs: function (e) {
     wx.showModal({
       title: '联系我们',

@@ -2,30 +2,30 @@
 <view class="container">
   <view class='user-info'>
     <open-data type="userAvatarUrl" class="user-image"></open-data>
-    <view class="weui-input">{{sum}}/{{upperlimit}}</view>
+    <view class="weui-input">已支出{{sum}} / 上限{{upperlimit}}</view>
   </view>
   <view class="weui-grids">
     <view class="weui-grid" wx:for="{{resultmap}}" wx:key="">
       <view>
         <view wx:if="{{item==2}}">
           <view style="position: relative;">
-            <view style="position: absolute;">
-              <image src="../../assets/g2.png" class='grid-image' mode="scaleToFill" />
+            <view style="position: absolute;overflow:hidden;">
+              <image src="../../assets/grass1.png" class='grid-image' mode="scaleToFill" />
             </view>
-            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+             <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" /> 
           </view>
         </view>
         <view wx:if="{{item==1}}">
           <view style="position: relative;">
-            <view style="position: absolute;">
+            <view style="position: absolute;overflow:hidden;">
               <image src="../../assets/h.png" class='grid-image' mode="scaleToFill" />
             </view>
-            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+             <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" /> 
           </view>
         </view>
         <view wx:if="{{item==0}}">
           <view style="position: relative;">
-            <view style="position: absolute;">
+            <view style="position: absolute;overflow:hidden;">
               <image src="../../assets/p.png" class='grid-image' mode="scaleToFill" />
             </view>
           </view>
@@ -33,10 +33,10 @@
         <view wx:if="{{item==-1}}"></view>
         <view wx:if="{{item>10}}">
           <view style="position: relative;">
-            <view style="position: absolute;">
+            <view style="position: absolute;overflow:hidden;">
               <image src="../../assets/{{item-10}}.png" class='grid-image' mode="scaleToFill" />
             </view>
-            <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" />
+             <image src="../../assets/basic.png" class='grid-image' mode="scaleToFill" /> 
           </view>
         </view>
       </view>
